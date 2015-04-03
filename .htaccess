@@ -1,0 +1,3 @@
+RewriteEngine On
+RewriteBase /
+RewriteRule ^([^/]*)/([^/]*)$ api/?controller=$1&action=$2 [L]
