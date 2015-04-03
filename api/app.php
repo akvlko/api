@@ -2,7 +2,7 @@
 /**
  * App
  *
- * Core API application for request and response handlers
+ * application setup
  *
  * PHP versions 5.x
  *
@@ -12,19 +12,32 @@
  * Redistributions of files is strictly prohibited.
  *
  * @copyright     Copyright 2014 Ashok Vishwakarma
- * @link          http://ashokvishwakarma.in 
+ * @link          http://ashokvishwakarma.in
  * @since         v 1.0
  * @license       Copyright 2014 Ashok Vishwakarma (http://ashokvishwakarma.in )
  */
 /**
- * Inluding config
+ * require config.php from config directory
  */
 require_once 'config/config.php';
+
 /**
- * Including autoload
+ * autoload class
  */
 require_once 'autoload.php';
+
 class App{
+	/**
+	 * reponse variable declaration
+	 */
+	public $response;
+	/**
+	 * dispatch
+	 * @param string $class
+	 * @param string $method
+	 * @param array $postData
+	 * @throws Exception
+	 */
 	public function dispatch($class, $method, $postData){
 		$response = array();
 		try{
@@ -46,7 +59,12 @@ class App{
 			return $this;
 		}
 	}
-	
+	/**
+	 * toJSON
+	 * 
+	 * @uses convert response to JSON format
+	 * @return JSON
+	 */
 	function toJSON(){
 		return json_encode($this->response);
 	}

@@ -1,8 +1,8 @@
 <?php
 /**
- * AutoLoad file
+ * autoload
  *
- * Autoloading the classes and libraries
+ * autloading all required classes from controllers and lib folders
  *
  * PHP versions 5.x
  *
@@ -12,7 +12,7 @@
  * Redistributions of files is strictly prohibited.
  *
  * @copyright     Copyright 2014 Ashok Vishwakarma
- * @link          http://ashokvishwakarma.in 
+ * @link          http://ashokvishwakarma.in
  * @since         v 1.0
  * @license       Copyright 2014 Ashok Vishwakarma (http://ashokvishwakarma.in )
  */

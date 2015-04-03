@@ -29,20 +29,20 @@ define('HOST','localhost');
  * @var constant DB_USER
  * @uses Use to connect to the database
  */
-define('USER', 'root');
+define('USER', 'db_user_name');
 
 /**
  * Database passord for mysql server
  * @var constant DB_PASSWORD
  * @uses Use to connect to the database
  */
-define('PASSWORD', '');
+define('PASSWORD', 'db_password');
 
 /**
  * Database name for mysql server
  * @var constant DB_NAME
  * @uses Use to connect to the database
  */
-define('DATABASE', 'akv');
+define('DATABASE', 'database_name');
 
 ?>

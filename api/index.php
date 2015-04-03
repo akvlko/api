@@ -2,7 +2,7 @@
 /**
  * index
  *
- * Request and response handler from .htaccess
+ * request landing path redirected by .htaccess
  *
  * PHP versions 5.x
  *
@@ -17,47 +17,42 @@
  * @license       Copyright 2014 Ashok Vishwakarma (http://ashokvishwakarma.in )
  */
 /**
- * Including app.php
+ * including App class
  */
 require_once 'app.php';
 
 /**
- * Controller from URL
+ * controller name from the URL
+ * @var string
  */
 $controller = $_GET['controller'];
 
 /**
- * Action from URL
+ * action name from the URL
+ * @var string
  */
 $action = $_GET['action'];
 
 /**
- * New Application (App)
+ * application object
+ * @var object
  */
 $app = new App();
-/*
- * setting header for JSON
- *
+/**
+ * setting up headers to application/json for json reponse
  */
 header('Content-Type: application/json');
 
 /**
- * Post Params
+ * parsing JSON post/put request data
+ * @var json
  */
-$postData = array();
+$postData = json_decode(file_get_contents("php://input"), TRUE);
 
 /**
- * If $_POST
- */
-if(!empty($_POST)){
-	$postData = $_POST;
-}else{
-	// AngularJs service post
-	$postData = json_decode(file_get_contents("php://input"), TRUE);
-}
-
-/**
- * Dispatching the application for its controller and action
+ * bootstraping application to its URL with controller, action and if any post data
+ * echo the response
  */
 echo $app->dispatch($controller, $action, $postData)->toJSON();
 ?>
+
