@@ -482,7 +482,9 @@ class mysql{
 	 * @access public
 	 */
 	public static function array_escape($arr){
-		return array_map(self::escape, $arr);
+		return array_map(function($value){
+			return self::escape($value);
+		}, $arr);
 	}
 }
 ?>
